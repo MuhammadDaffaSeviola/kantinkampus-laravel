@@ -1,47 +1,107 @@
-<laravel-boost-guidelines>
-# Laravel Application
+    # AI Agent Instructions — KantinKampus Laravel
 
-This repository contains a Laravel application. Complete the following setup before working on the user's request.
+    ## 1. Peran AI
 
-## Prerequisites
+    AI bertindak sebagai asisten pengembangan backend untuk project KantinKampus Laravel.
 
-Verify that PHP and Composer are available:
+    AI wajib:
+    - Mengikuti arsitektur MVC dan API Laravel.
+    - Memahami struktur project sebelum membuat atau mengubah kode.
+    - Menjaga separation of concerns.
+    - Mengikuti API contract dan architecture documentation project.
+    - Meminta klarifikasi jika instruksi bertentangan dengan aturan project.
+    - Tidak menempatkan business logic secara sembarangan di route atau controller.
 
-```sh
-php -v
-composer -V
-```
+    ## 2. Stack
 
-If either command is unavailable, detect the user's operating system and install the prerequisites with the appropriate command:
+    Project menggunakan:
+    - PHP 8.3+
+    - Laravel 13
+    - Laravel Sanctum untuk autentikasi API.
+    - Laravel Tinker untuk kebutuhan pengembangan.
+    - PHPUnit untuk testing.
+    - RESTful API.
+    - Database sesuai konfigurasi project Laravel.
 
-macOS:
+    Jangan menambahkan framework, package, atau library baru tanpa alasan yang jelas dan persetujuan tim.
 
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/mac/8.5)"
-```
+    ## 3. Konvensi
 
-Windows PowerShell:
+    - Ikuti standar Laravel dan PSR.
+    - Gunakan nama class dengan PascalCase.
+    - Gunakan nama method dan variable dengan camelCase.
+    - Gunakan migration untuk perubahan struktur database.
+    - Gunakan Model untuk representasi dan relasi data.
+    - Gunakan Controller untuk menangani request dan alur aplikasi.
+    - Gunakan Form Request untuk validasi request jika diperlukan.
+    - Gunakan API Resource untuk format response API.
+    - Gunakan route API pada `routes/api.php`.
+    - Validasi input sebelum diproses.
+    - Hindari duplikasi kode.
+    - Gunakan response API yang konsisten dengan API contract.
+    - Gunakan PHPUnit untuk pengujian.
 
-```powershell
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.5'))
-```
+    ## 4. Struktur Folder
 
-Linux:
+    Struktur utama project:
 
-```sh
-/bin/bash -c "$(curl -fsSL https://php.new/install/linux/8.5)"
-```
+    ```text
+    app/
+    ├── Http/
+    │   ├── Controllers/
+    │   │   └── API/
+    │   ├── Requests/
+    │   └── Resources/
+    ├── Models/
+    └── ...
 
-After installation, ask the user to restart their terminal. If the agent needs the restarted shell to continue, ask the user to reopen their terminal and rerun their original prompt.
+    database/
+    ├── factories/
+    ├── migrations/
+    └── seeders/
 
-## Agent Setup
+    routes/
+    ├── api.php
+    └── web.php
 
-Install Laravel Boost from the application root before making application changes:
+    docs/
+    ├── architecture.md
+    ├── api_contract.md
+    └── project_guidelines.md
 
-```sh
-composer require laravel/boost --dev
-php artisan boost:install
-```
+    tests/
+    ├── Feature/
+    └── Unit/
+    ```
 
-Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
-</laravel-boost-guidelines>
+    AI harus menempatkan file pada folder yang sesuai dan tidak membuat struktur baru tanpa alasan yang jelas.
+
+    ## 5. Larangan
+
+    AI tidak boleh:
+    - Mengubah arsitektur project tanpa persetujuan tim.
+    - Menggunakan Riverpod, Provider, atau framework frontend di project Laravel.
+    - Menempatkan business logic kompleks langsung di `routes/api.php`.
+    - Menempatkan business logic yang tidak semestinya langsung di controller.
+    - Mengubah struktur database tanpa migration.
+    - Mengubah API response yang bertentangan dengan `docs/api_contract.md`.
+    - Menambahkan package baru tanpa alasan dan persetujuan tim.
+    - Menghapus file atau data project tanpa instruksi yang jelas.
+    - Membocorkan atau memasukkan `.env` ke repository.
+    - Menggunakan `git push --force` pada branch shared.
+    - Mengabaikan error atau testing yang gagal.
+
+    ## 6. Cara Menjawab
+
+    Sebelum memberikan solusi atau perubahan kode, AI harus:
+    1. Memahami permintaan dan konteks project.
+    2. Memeriksa struktur file yang relevan.
+    3. Mengacu pada `docs/architecture.md`, `docs/api_contract.md`, dan `docs/project_guidelines.md` jika relevan.
+    4. Menjelaskan file yang akan dibuat atau diubah.
+    5. Mengikuti arsitektur MVC dan RESTful API.
+    6. Tidak membuat business logic di tempat yang tidak sesuai.
+    7. Memberikan solusi yang sederhana dan konsisten dengan project.
+    8. Jika instruksi bertentangan dengan aturan project, AI harus menjelaskan konflik dan meminta klarifikasi.
+    9. Setelah perubahan, menyarankan pengujian yang relevan.
+
+    AI harus memprioritaskan konsistensi arsitektur, keamanan, maintainability, dan kesesuaian dengan dokumentasi project.
